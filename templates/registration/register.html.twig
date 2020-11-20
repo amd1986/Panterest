@@ -8,7 +8,7 @@
     <div class="col-md-6 mx-auto">
 
         {% for flashError in app.flashes('verify_email_error') %}
-            <div class="mb-3 alert alert-error rounded" role="alert">{{ flashError }}</div>
+            <div class="mb-4 alert alert-error rounded" role="alert">{{ flashError }}</div>
         {% endfor %}
 
         <h1 class="my-5 text-center">Create an account</h1>
@@ -31,7 +31,7 @@
                 label: 'I consent to the privacy policy and terms of service.'
             }) }}
 
-            <button type="submit" class="btn btn-block btn-primary">Register</button>
+            <button type="submit" class="btn btn-lg btn-primary btn-block">Register</button>
 
             <p class="mt-5 text-center text-muted">Already have an account? 
             <a href="{{ path('app_login') }}">Log in</a>
