@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+@import 'shared/variables';
+
+@import '~bootstrap/scss/bootstrap';
+
+html, body{
+    font-family: $primary-font, sans-serif;
+}
+
+.alert{
+    text-align: center;
+    padding: 10px;
+    color: white;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+
+    &.alert-success{
+        background-color: green;
+    }
+    &.alert-error{
+        background-color: red;
+    }
+    &.alert-info{
+        background-color: blue;
+    }
+}
+
+.pin img{
+    transition: 0.3s ease-in-out;
+    &:hover{
+        transform: scale(1.075);
+    }
+}
+
+.vich-image{
+    .form-check {
+        @extend .mt-3;
+    }
+
+    img {
+        @extend .mb-2, .rounded, .shadow,.img-thumbnail;
+    }
+}

@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
+    <div class="container">
+        <a class="navbar-brand" href="{{ path('app_home') }}">Pnsterest</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+            {% if app.user %}
+
+                <a class="nav-item nav-link" href="{{ path('app_pins_create') }}">New Pin</a>
+                <a class="nav-item nav-link" href="#">Account</a>
+                <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('js-logout-form').submit();">Logout</a>
+                <form id="js-logout-form" action="{{ path('app_logout') }}" method="POST" style="display: none;">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('logout') }}">
+                </form>
+
+            {% else %}
+            
+                <a class="nav-item nav-link" href="{{ path('app_register') }}">Register</a>
+                <a class="nav-item nav-link" href="{{ path('app_login') }}">Login</a>
+            
+            {% endif %}
+            </div>
+         </div>
+    </div>  
+</nav>

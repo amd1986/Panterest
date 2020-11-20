@@ -1,0 +1,37 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title 'Pnterest app' %}
+
+{% block body %}
+
+{% if (pins|length > 0) %}
+
+    <h1 class="mb-4 text-muted text-center">{{ pluralize(pins|length, 'Pin') }}</h1>
+
+    {% for row in pins|batch(3) %}
+        <div class="mb-5 row">
+            {% for pin in row %}
+
+                <div class="col-md-4">
+                    <article class="pin bg-white rounded shadow">
+                        <div class="mw-100 rounded-top overflow-hidden">
+                            <a href="{{ path('app_pins_show', {id: pin.id}) }}">
+                                <img class="w-100" alt="{{ pin.title }}"
+                                src="{{ (pin.imageName ? vich_uploader_asset(pin) : asset('build/images/default.jpg'))|imagine_filter('squared_thumbnail_medium') }}"/>
+                            </a>
+                        </div>
+                        <div class="p-3">
+                            <h2 class="h5"><a class="text-secondary text-decoration-none" href="{{ path('app_pins_show', {id: pin.id}) }}">{{ pin.title }}</a></h2>
+                            <p class="text-muted">
+                                <small>Submitted by {{ pin.user.getFullName }}</small>
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+    {% else %}
+        <h1 class="text-center">No pins yet. <a href="{{ path('app_pins_create') }}">Be the first!</a></h1>
+    {% endif %}
+{% endblock %}

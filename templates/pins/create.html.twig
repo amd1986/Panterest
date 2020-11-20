@@ -1,0 +1,17 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title 'New pin' %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="mx-auto col-md-6">
+    
+            <h1>Create pin</h1>
+            
+            {{ include('pins/_form.html.twig') }}
+
+        </div>
+    </div>
+
+{% endblock %}
